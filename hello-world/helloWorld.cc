@@ -14,24 +14,6 @@ double addThreeNumbers(double x, double y, double z)
     return x+y+z;
 }
 
-namespace translate {
-    template <>
-    struct from_object<float, std::true_type> {
-	typedef float DeclareType;
-	DeclareType _v;
-	from_object(core::T_sp o) : _v(o.unsafe_single_float()) {};
-    };
-
-    template <>
-    struct to_object<float> {
-	typedef float GivenType;
-	static core::T_sp convert(GivenType v) {
-	    return core::make_single_float(v);
-	}
-    };
-};
-
-    
 float addThreeSingleFloats(float x, float y, float z)
 {
     return x+y+z;
